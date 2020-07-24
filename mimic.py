@@ -67,12 +67,12 @@ def print_mimic(mimic_dict, start_word):
         - Repeat this process 200 times
     """
     for word in range(200):
+        words = mimic_dict.get(start_word)
+        if not words:
+            words = mimic_dict['']
+        start_word = random.choice(words)
         print(start_word)
-        word = mimic_dict.get(start_word)
-        if not word:
-            word = mimic_dict['']
-        start_word = random.choice(word)
-    
+    return print_mimic  
 
 
 # Provided main(), calls mimic_dict() and print_mimic()
